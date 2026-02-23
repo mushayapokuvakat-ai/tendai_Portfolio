@@ -2,8 +2,12 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import re
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='.')
 CORS(app)  # Enable CORS for frontend communication
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 # Mock AI Chat Logic
 def get_ai_response(query):
