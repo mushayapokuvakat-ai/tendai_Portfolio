@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             chatInput.value = '';
 
             try {
-                const response = await fetch('http://localhost:5000/api/chat', {
+                const response = await fetch('https://tendai-portfolio.onrender.com/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message })
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 console.error('Chat error:', error);
-                addMessage("Oops! I can't reach the server. Make sure app.py is running on localhost:5000.", 'ai');
+                addMessage("Oops! I can't reach Tendai's server right now. It might be waking up—please try again in a few seconds.", 'ai');
             }
         });
     }
