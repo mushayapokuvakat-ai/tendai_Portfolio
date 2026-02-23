@@ -9,37 +9,61 @@ CORS(app)  # Enable CORS for frontend communication
 def index():
     return app.send_static_file('index.html')
 
-# Mock AI Chat Logic
-def get_ai_response(query):
-    query = query.lower()
-    if 'math' in query or 'equation' in query:
-        return "I can help you with that! Are you looking for a step-by-step solution to a specific problem?"
-    elif 'patnat' in query or 'academy' in query:
-        return "Patnat Academy is Tendai's innovative learning platform. We offer courses in Mathematics and Computing."
-    elif 'help' in query:
-        return "I can assist with Calculus, Algebra, Statistics, and Software Engineering queries. What's on your mind?"
-    else:
-        return f"That sounds interesting! As an AI trained by Tendai, I'd suggest looking into how {query} relates to mathematical logic."
+from sympy import sympify, solve, symbols, simplify, diff, integrate, latex
+import sympy
 
-# Basic Math Solver Logic
-def solve_equation(equation):
-    # Simulated solver for basic linear/quadratic patterns
-    # In a real app, you might use SymPy
+# Advanced Math Solver Logic
+def solve_math_problem(problem):
     try:
-        if 'x' in equation:
+        # Check if it's an equation with '='
+        if '=' in problem:
+            lhs_str, rhs_str = problem.split('=')
+            lhs = sympify(lhs_str)
+            rhs = sympify(rhs_str)
+            # Find the variable to solve for (usually x)
+            var = symbols('x')
+            result = solve(lhs - rhs, var)
             return {
-                "equation": equation,
-                "steps": [
-                    f"1. Identify the variable: x",
-                    f"2. Rearrange the equation: {equation}",
-                    "3. Apply algebraic properties to isolate x.",
-                    "4. Final Solution: x = [Calculated Value]"
-                ],
-                "result": "Solution found via algebraic isolation."
+                "type": "equation",
+                "solution": [str(res) for res in result] if result else "No solution found",
+                "steps": [f"Equation: {lhs_str} = {rhs_str}", f"Simplified LHS - RHS: {simplify(lhs - rhs)} = 0"]
             }
-        return {"error": "Equation pattern not recognized. Please try a simpler linear form."}
+        else:
+            # Try to simplify expression
+            expr = sympify(problem)
+            return {
+                "type": "expression",
+                "simplified": str(simplify(expr)),
+                "derivative": str(diff(expr, symbols('x'))),
+                "integral": str(integrate(expr, symbols('x')))
+            }
     except Exception as e:
         return {"error": str(e)}
+
+# Mock AI Chat Logic (Enhanced)
+def get_ai_response(query):
+    query_clean = query.lower().strip()
+    
+    # Check if there's a math expression (basic heuristic)
+    math_symbols = ['+', '-', '*', '/', '^', '=', 'sqrt', 'log', 'sin', 'cos']
+    if any(symbol in query for symbol in math_symbols):
+        # Extract expression - this is a simple extraction, could be improved
+        parts = query.split()
+        for p in parts:
+            if any(s in p for s in math_symbols):
+                math_result = solve_math_problem(p)
+                if "error" not in math_result:
+                    if math_result['type'] == 'equation':
+                        return f"I solved that equation for you! The solution is: {math_result['solution']}. My logic: {math_result['steps'][1]}."
+                    else:
+                        return f"I simplified that for you: {math_result['simplified']}. Derivative: {math_result['derivative']}."
+    
+    if 'math' in query_clean or 'equation' in query_clean:
+        return "I'm ready! Send me any equation (like 'x^2 - 4 = 0') or expression and I'll solve it for you using my new SymPy engine."
+    elif 'patnat' in query_clean or 'academy' in query_clean:
+        return "Patnat Academy is Tendai's platform for high-level STEM mentorship. We specialize in making advanced math accessible."
+    else:
+        return "I can help with math, programming, or info about Tendai's projects. Try asking me to solve an equation!"
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
@@ -52,7 +76,7 @@ def chat():
 def solve():
     data = request.json
     equation = data.get('equation', '')
-    result = solve_equation(equation)
+    result = solve_math_problem(equation)
     return jsonify(result)
 
 @app.route('/health', methods=['GET'])
