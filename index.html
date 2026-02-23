@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tendai Mushayapokuvaka | Software Engineer & CEO</title>
+    <meta name="description"
+        content="Portfolio of Tendai Mushayapokuvaka - Software Engineer, Advanced Maths Tutor, and CEO of Patnat Academy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">TM<span>.</span></a>
+            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#tutoring">Tutoring</a></li>
+                <li><a href="#academy">Academy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home / Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container hero-content">
+                <h1>Hi, I'm <span class="highlight">Tendai Mushayapokuvaka</span></h1>
+                <p class="role-labels">Software Engineer | Advanced Mathematics Tutor | CEO of Patnat Academy</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-image">
+                        <div class="img-container">
+                            <img src="profile.png" alt="Tendai Mushayapokuvaka"
+                                onerror="this.src='https://via.placeholder.com/400x500?text=Profile+Image'">
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p>I am a <strong>Software Engineer</strong>, <strong>Frontend Developer</strong>, and
+                            <strong>Advanced Level Mathematics Tutor</strong> currently studying at Africa University. I
+                            am also the <strong>CEO of Patnat Academy</strong>, where I develop innovative learning
+                            platforms and mentor students in computing and mathematics.
+                        </p>
+                        <p>I enjoy solving complex mathematical problems and building scalable software solutions using
+                            Java, Python, HTML, and MS SQL Server. My focus is on creating technology that makes
+                            education more accessible and effective.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Frontend Development (HTML/CSS/JS)</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bg">
+                            <div class="progress-bar" data-width="95%"
+                                style="background: linear-gradient(90deg, #1E90FF, #9B00FF);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Java & Spring Boot</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bg">
+                            <div class="progress-bar" data-width="85%"
+                                style="background: linear-gradient(90deg, #9B00FF, #FF8C00);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python & AI</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bg">
+                            <div class="progress-bar" data-width="80%"
+                                style="background: linear-gradient(90deg, #FF8C00, #00FFD5);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>MS SQL Server & Databases</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bg">
+                            <div class="progress-bar" data-width="90%"
+                                style="background: linear-gradient(90deg, #00FFD5, #1E90FF);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Advanced Mathematics</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="progress-bg">
+                            <div class="progress-bar" data-width="100%"
+                                style="background: linear-gradient(90deg, #1E90FF, #00FFD5);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Dynamic Projects loading via JS -->
+                    <div class="project-card">
+                        <h3>Academy Platform</h3>
+                        <p>A full-stack learning management system built for Patnat Academy students.</p>
+                        <div class="project-tech">Java, SQL, JavaScript</div>
+                        <a href="#" class="project-link">View on GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Math Solver Tool</h3>
+                        <p>Interactive web application that solves complex algebraic equations step-by-step.</p>
+                        <div class="project-tech">Python, Flask, React</div>
+                        <a href="#" class="project-link">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section education-section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="year">Current</span>
+                        <h3>BSc Computer Science</h3>
+                        <p>Africa University</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="year">Completed</span>
+                        <h3>Advanced Level Mathematics</h3>
+                        <p>High Distinction in Pure & Statistics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maths Tutoring Section -->
+        <section id="tutoring" class="section tutoring-section highlight-bg">
+            <div class="container">
+                <h2 class="section-title">Maths Tutoring</h2>
+                <div class="tutoring-content">
+                    <div class="tutoring-info">
+                        <h3>Master the Numbers</h3>
+                        <p>Personalized advanced level mathematics tutoring. I specialize in making complex concepts
+                            easy to understand through logic and application.</p>
+                        <ul class="check-list">
+                            <li>Pure Mathematics (Algebra, Calculus)</li>
+                            <li>Statistics & Mechanics</li>
+                            <li>Exam Preparation Strategies</li>
+                        </ul>
+                    </div>
+                    <div class="tutoring-graphic">
+                        <img src="math_icon.png" alt="Math Symbols"
+                            onerror="this.src='https://via.placeholder.com/300?text=Math+Graphics'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CEO / Academy Section -->
+        <section id="academy" class="section academy-section">
+            <div class="container">
+                <h2 class="section-title">CEO of Patnat Academy</h2>
+                <div class="academy-branding">
+                    <div class="academy-logo-container">
+                        <img src="academy_logo.png" alt="Patnat Academy"
+                            onerror="this.src='https://via.placeholder.com/600x200?text=Patnat+Academy'">
+                    </div>
+                    <div class="academy-details">
+                        <p><strong>Mission:</strong> To innovate learning through technology and mentorship.</p>
+                        <p><strong>Vision:</strong> Global access to top-tier mathematics and computing education.</p>
+                        <div class="academy-stats">
+                            <div class="stat-box">
+                                <h4>500+</h4>
+                                <p>Students Mentored</p>
+                            </div>
+                            <div class="stat-box">
+                                <h4>10+</h4>
+                                <p>Digital Courses</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="section booking-section">
+            <div class="container">
+                <h2 class="section-title">Book a Session</h2>
+                <p class="section-subtitle">Interested in tutoring or a consultation? Schedule a meeting below.</p>
+                <div class="calendar-container">
+                    <iframe src="https://calendar.google.com/calendar/embed?src=tendaimushaya3%40gmail.com&ctz=UTC"
+                        style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Chat Widget -->
+        <div id="ai-chat-widget" class="ai-chat-widget">
+            <div class="chat-header">
+                <span>AI Math Tutor</span>
+                <button id="close-chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="message ai-message">Hi! I'm Tendai's AI assistant. Ask me anything about Maths or Patnat
+                    Academy!</div>
+            </div>
+            <form id="chat-input-form" class="chat-input-form">
+                <input type="text" id="chat-input" placeholder="Type a message..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <button id="open-chat" class="open-chat-btn">💬 AI Tutor</button>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title">Connect With Me</h2>
+                <div class="contact-grid">
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/tendaimushaya" target="_blank"
+                            class="social-item linkedin">LinkedIn</a>
+                        <a href="https://instagram.com/patnattindolicious" target="_blank"
+                            class="social-item instagram">Instagram</a>
+                        <a href="mailto:tendaimushaya3@gmail.com" class="social-item email">Email Me</a>
+                    </div>
+                    <form id="contact-form" class="contact-form-modern">
+                        <div class="form-row">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-gradient">Send Message</button>
+                        <p id="form-status"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Tendai Mushayapokuvaka. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
