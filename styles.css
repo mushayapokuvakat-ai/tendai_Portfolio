@@ -334,6 +334,15 @@ img {
     padding-left: 2rem;
 }
 
+.academy-logo-container .ceo-portrait {
+    max-width: 250px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    border: 3px solid var(--accent-blue);
+    display: block;
+    margin: 0 auto;
+}
+
 .timeline-item {
     position: relative;
     margin-bottom: 3rem;
