@@ -249,22 +249,34 @@
             </div>
         </section>
 
-        <!-- AI Chat Widget -->
+        <!-- AI Chat Widget (v2) -->
         <div id="ai-chat-widget" class="ai-chat-widget">
             <div class="chat-header">
-                <span>AI Math Tutor</span>
+                <span>🧮 AI Math Tutor v2</span>
                 <button id="close-chat">&times;</button>
             </div>
-            <div id="chat-messages" class="chat-messages">
-                <div class="message ai-message">Hi! I'm Tendai's AI assistant. Ask me anything about Maths or Patnat
-                    Academy!</div>
+            <!-- Topic Mode Tabs -->
+            <div class="chat-tabs">
+                <button class="chat-tab active"
+                    data-hint="differentiate x^3+2x | integrate sin(x) | solve x^2-4=0 | factorise x^2-5x+6">📐 Pure
+                    Maths</button>
+                <button class="chat-tab"
+                    data-hint="mean of [4,6,8,10] | standard deviation of [2,4,4,4,5,5,7,9] | median of [3,7,9,1,5]">📊
+                    Statistics</button>
+                <button class="chat-tab" data-hint="3 EI low, 2 ILF avg, 1 EO high, VAF=42">🖥️ Function Points</button>
+                <button class="chat-tab" data-hint="COCOMO 15 KLOC organic | COCOMO 50 KLOC embedded">📏 COCOMO</button>
             </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="message ai-message">👋 Hi! I'm Tendai's AI Math Tutor v2. Select a topic tab above or type
+                    any query below — I'll show you the full step-by-step working!</div>
+            </div>
+            <div class="chat-hint" id="chat-hint">💡 Try: <em>differentiate x^3+2x</em></div>
             <form id="chat-input-form" class="chat-input-form">
-                <input type="text" id="chat-input" placeholder="Type a message..." required>
+                <input type="text" id="chat-input" placeholder="Type your query..." required>
                 <button type="submit">Send</button>
             </form>
         </div>
-        <button id="open-chat" class="open-chat-btn">💬 AI Tutor</button>
+        <button id="open-chat" class="open-chat-btn">🧮 AI Tutor</button>
 
         <!-- Contact Section -->
         <section id="contact" class="section contact-section">

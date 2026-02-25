@@ -84,7 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chat-input-form');
     const chatInput = document.getElementById('chat-input');
     const chatMessages = document.getElementById('chat-messages');
+    const chatHint = document.getElementById('chat-hint');
 
+    // Add message — use textContent so newlines render with pre-wrap
     const addMessage = (text, sender) => {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${sender}-message`;
@@ -92,6 +94,16 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.appendChild(msgDiv);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     };
+
+    // Tab switching
+    document.querySelectorAll('.chat-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.chat-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const hint = tab.getAttribute('data-hint');
+            if (chatHint) chatHint.innerHTML = `💡 Try: <em>${hint.split('|')[0].trim()}</em>`;
+        });
+    });
 
     if (openChatBtn && closeChatBtn && chatWidget) {
         openChatBtn.addEventListener('click', () => {
@@ -113,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             addMessage(message, 'user');
             chatInput.value = '';
+            addMessage('⏳ Calculating...', 'ai');
 
             try {
                 const response = await fetch('/api/chat', {
@@ -121,6 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({ message })
                 });
 
+                // Remove the "Calculating..." bubble
+                chatMessages.removeChild(chatMessages.lastChild);
+
                 if (response.ok) {
                     const data = await response.json();
                     addMessage(data.response, 'ai');
@@ -128,8 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     addMessage("I'm having trouble connecting to Tendai's server right now. Check if the backend is running!", 'ai');
                 }
             } catch (error) {
+                chatMessages.removeChild(chatMessages.lastChild);
                 console.error('Chat error:', error);
-                addMessage("Oops! I can't reach Tendai's server right now. It might be waking up—please try again in a few seconds.", 'ai');
+                addMessage("Oops! I can't reach Tendai's server right now. It might be waking up — please try again in a few seconds.", 'ai');
             }
         });
     }
