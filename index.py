@@ -460,5 +460,5 @@ def health():
     return jsonify({"status": "healthy", "engine": "AI Math Engine v2"})
 
 if __name__ == '__main__':
-    print("🧮 Tendai's AI Math Engine v2 — running on http://localhost:5000")
+    print("AI Math Engine v2 - running on http://localhost:5000")
     app.run(port=5000, debug=True)
