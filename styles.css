@@ -554,8 +554,8 @@ textarea:focus {
     position: fixed;
     bottom: 100px;
     right: 30px;
-    width: 350px;
-    height: 500px;
+    width: 380px;
+    height: 560px;
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -568,6 +568,45 @@ textarea:focus {
 
 .ai-chat-widget.active {
     display: flex;
+}
+
+/* Topic Tabs */
+.chat-tabs {
+    display: flex;
+    gap: 0.3rem;
+    padding: 0.5rem 0.7rem;
+    background: #f4f7fb;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+}
+
+.chat-tab {
+    flex: 1 1 auto;
+    background: #e8eef6;
+    border: none;
+    border-radius: 8px;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.chat-tab.active,
+.chat-tab:hover {
+    background: var(--accent-blue);
+    color: #fff;
+}
+
+/* Hint Bar */
+.chat-hint {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    color: var(--accent-purple);
+    background: #faf8ff;
+    border-bottom: 1px solid #f0eaff;
 }
 
 .chat-header {
@@ -611,6 +650,10 @@ textarea:focus {
     color: var(--text-primary);
     align-self: flex-start;
     border-bottom-left-radius: 2px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-width: 92%;
+    font-family: var(--font-main);
 }
 
 .user-message {
